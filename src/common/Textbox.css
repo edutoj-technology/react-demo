@@ -1,0 +1,14 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+.input-label {
+  font-size: 1.1rem;
+  color: gray;
+}
+
+.input-text {
+  border: 1px solid gray;
+}
