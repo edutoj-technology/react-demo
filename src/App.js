@@ -1,43 +1,23 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, { useState } from "react";
-import UserItem from "./UserItem";
-import AddUser from "./AddUser";
-import Sidebar from "./Sidebar";
-import Textbox from "./common/Textbox";
+import React from "react";
+import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import AboutUs from "./AboutUs";
+import ContactUs from "./ContactUs";
+import Header from "./Header";
+import TaskList from "./TaskList";
 
 function App() {
-  const [userList, setUserList] = useState([]);
-  const [firstName, setFirstName] = useState("");
-
+  
   return (
-    <div>
-      {userList &&
-        userList.length > 0 &&
-        userList.map((user) => {
-          return (
-            <UserItem key={user.userId} name={user.name} userId={user.userId} />
-          );
-        })}
-
-      <AddUser userListProp={userList} setUserListFunc={setUserList} />
-
-      <br />
-
-      <Textbox
-        label="First name"
-        value={firstName}
-        onChange={(event) => {
-          setFirstName(event.target.value);
-        }}
-      />
-      <Textbox
-        label="Last name"
-        value={firstName}
-        onChange={(event) => {
-          setFirstName(event.target.value);
-        }}
-      />
+    <div className="main-container">
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path="/about" element={<AboutUs />} />
+          <Route exact path="/contact" element={<ContactUs />} />
+          <Route exact path="/tasks" element={<TaskList />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
