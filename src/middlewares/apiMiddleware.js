@@ -9,11 +9,14 @@ const apiMiddleware = (store) => (next) => (action) => {
       "Skip api call as meta prop is not present"
     );
   }
+
+  let { url, method, data } = action.meta.api;
+
   const promise = new Promise((resolve, reject) => {
     axios({
-      method: "GET",
-      url: action.meta.api.url,
-      //   data,
+      method,
+      url,
+      data,
       //   timeout: timeout || 0,
       //   headers: customHeaders,
       //   responseType: responseType || "",

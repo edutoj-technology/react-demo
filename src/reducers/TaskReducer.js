@@ -12,4 +12,14 @@ function taskReducer(state = initialState, action) {
       return state;
   }
 }
-export default taskReducer;
+
+function taskCategoryReducer(state = [], action) {
+  switch (action.type) {
+    case "GET_ALL_TASK_CATEGORIES": {
+      return action.response;
+    }
+    default:
+      return state;
+  }
+}
+export { taskReducer, taskCategoryReducer };

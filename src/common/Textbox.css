@@ -18,3 +18,16 @@
   padding: 1rem;
   font-size: 1.5rem;
 }
+
+.input-select {
+  border-radius: 0.5rem;
+  border: 1px solid rgb(207, 209, 209);
+  height: 3.6rem;
+  width: 93.5%;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.input-select option {
+  height: 2.5rem;
+}

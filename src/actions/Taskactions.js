@@ -1,22 +1,38 @@
-const addTask = (task) => {
+const addTask = (url, taskObject) => {
   return {
     type: "ADD_TASK",
-    payload: task,
-  };
-};
-
-const getAllTasks = (url, data) => {
-  return {
-    type: "GET_ALL_TASKS",
-    resolve: true,
     meta: {
       api: {
-        method: "GET",
+        method: "POST",
         url: url,
-        data: data
+        data: taskObject,
       },
     },
   };
 };
 
-export default getAllTasks;
+const getAllTasks = (url) => {
+  return {
+    type: "GET_ALL_TASKS",
+    meta: {
+      api: {
+        method: "GET",
+        url: url,
+      },
+    },
+  };
+};
+
+const getAllTaskCategories = (url) => {
+  return {
+    type: "GET_ALL_TASK_CATEGORIES",
+    meta: {
+      api: {
+        method: "GET",
+        url: url,
+      },
+    },
+  };
+};
+
+export { addTask, getAllTasks, getAllTaskCategories };
